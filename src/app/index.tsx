@@ -1,14 +1,7 @@
 import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import {
-  Button,
-  FlatList,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
-import FoodListItem from "../components/FoodListItem";
+import { StyleSheet, Text, View } from "react-native";
+// import FoodListItem from "../components/FoodListItem";
 import { useState } from "react";
 
 const foodItems = [
@@ -17,7 +10,7 @@ const foodItems = [
   { label: "Banana", cal: "105", brand: "Generic" },
 ];
 
-export default function App() {
+export default function Home() {
   const [search, setSearch] = useState("");
 
   const performSearch = () => {
@@ -26,7 +19,7 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <TextInput
+      {/* <TextInput
         value={search}
         onChangeText={setSearch}
         placeholder="Search here..."
@@ -38,8 +31,13 @@ export default function App() {
         data={foodItems}
         renderItem={({ item }) => <FoodListItem item={item} />}
         contentContainerStyle={{ gap: 5 }}
-      />
-
+      /> */}
+      <Link href={"/home"} style={styles.link}>
+        Hello
+      </Link>
+      <Link href="/onBoarding" style={styles.link}>
+        Go to OnBoardingScreen
+      </Link>
       <StatusBar style="auto" />
     </View>
   );
@@ -48,13 +46,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#c6c6c6ff",
     padding: 10,
     gap: 10,
+    paddingTop: 40,
+    justifyContent: "center",
+    alignItems: "center",
   },
   input: {
     backgroundColor: "#F2F2F2",
     padding: 10,
     borderRadius: 10,
+  },
+  link: {
+    fontSize: 24,
+    backgroundColor: "dimgray",
+    borderRadius:10,
+    padding: 10,
+    color: "skyblue",
+    fontWeight: "bold",
   },
 });
