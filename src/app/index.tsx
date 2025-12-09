@@ -33,7 +33,7 @@ export default function Home() {
         contentContainerStyle={{ gap: 5 }}
       /> */}
       <Link href={"/home"} style={styles.link}>
-        Hello
+        Home Screen
       </Link>
       <Link href="/onBoarding" style={styles.link}>
         Go to OnBoardingScreen
